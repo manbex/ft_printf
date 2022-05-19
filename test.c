@@ -3,6 +3,6 @@
 
 int	main()
 {
-	printf("<%.s>", "testgdsgsdgsdgsdgsd");
+	printf("% x", 542);
 	return (0);
 }

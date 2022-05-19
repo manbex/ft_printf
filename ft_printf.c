@@ -12,13 +12,29 @@
 
 #include <stdarg.h>
 
-int	ft_prinf(const char *str, ...)
+int	ft_check(str)
 {
-	va_list	ptr;
 	int	i;
 
+	
+	while (*str)
+	{
+		i = 0;
+		if (*str == '%')
+		{
+			if (str[i] && str[i] )
+				
+		}
+		*str++;
+	}
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	ptr;
+
+	ft_check(str);
 	va_start(ptr, str);
-	i = 0;
 	va_end(ptr);
 	return ();
 }
