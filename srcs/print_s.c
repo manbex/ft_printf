@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
+#include "../includes/ft_printf.h"
 
-int	ft_print_s(va_list ptr)
+int	print_s(va_list ptr)
 {
 	char	*str;
 
 	str = va_arg(ptr, char *);
 	if (!str)
-		return (write(1, "NULL", 6));
+		return (write(1, "(null)", 6));
 	return (write (1, str, ft_strlen(str)));
 }

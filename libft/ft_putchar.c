@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_c.c                                          :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenicho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 20:29:54 by mbenicho          #+#    #+#             */
-/*   Updated: 2022/05/20 20:29:56 by mbenicho         ###   ########.fr       */
+/*   Created: 2022/05/23 23:07:17 by mbenicho          #+#    #+#             */
+/*   Updated: 2022/05/23 23:07:18 by mbenicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-#include "../libft/libft.h"
+#include "libft.h"
 
-int	print_c(va_list ptr)
+void	ft_putchar(char c)
 {
-	char	c;
-
-	c = va_arg(ptr, int);
-	return (write(1, &c, 1));
+	write(1, &c, 1);
 }

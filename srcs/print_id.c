@@ -1,22 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_c.c                                          :+:      :+:    :+:   */
+/*   print_id.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenicho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 20:29:54 by mbenicho          #+#    #+#             */
-/*   Updated: 2022/05/20 20:29:56 by mbenicho         ###   ########.fr       */
+/*   Created: 2022/05/23 21:27:07 by mbenicho          #+#    #+#             */
+/*   Updated: 2022/05/23 21:27:08 by mbenicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
 #include "../libft/libft.h"
+#include "../includes/ft_printf.h"
 
-int	print_c(va_list ptr)
+static size_t	ft_count(int n)
 {
-	char	c;
+	size_t	size;
 
-	c = va_arg(ptr, int);
-	return (write(1, &c, 1));
+	size = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		size++;
+		n *= -1;
+	}
+	while (n != 0)
+	{
+		n /= 10;
+		size++;
+	}
+	return (size);
+}
+
+int	print_id(va_list ptr)
+{
+	int	n;
+
+	n = va_arg(ptr, int);
+	ft_putnbr(n);
+	return (ft_count(n));
 }

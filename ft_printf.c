@@ -10,24 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "./libft/libft.h"
+#include "./includes/ft_printf.h"
 
 int	ft_call(char c, va_list ptr)
 {
 	if (c == 'c')
-		return (ft_print_c(ptr));
+		return (print_c(ptr));
 	if (c == 's')
-		return (ft_print_s(ptr));
+		return (print_s(ptr));
 	if (c == 'p')
-		return ();
-	if (c == ('d' || 'i'))
-		return ();
+		return (print_p(ptr));
+	if (c == 'd' || c == 'i')
+		return (print_id(ptr));
 	if (c == 'u')
-		return ();
-	if (c == ('x' || 'X'))
-		return ();
+		return (print_u(ptr));
+	if (c == 'x' || c == 'X')
+		return (print_x(ptr, c));
 	if (c == '%')
-		return (write(1, '%', 1));
+		return (write(1, "%", 1));
 	return (-1);
 }
 
@@ -42,7 +43,7 @@ int	ft_check(char c)
 			return (1);
 		i++;
 	}
-	return (0)
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -54,21 +55,18 @@ int	ft_printf(const char *str, ...)
 	va_start(ptr, str);
 	size = 0;
 	tmp = 0;
-	while (*str)
+	while (*((char *)str))
 	{
-		if (*str == '%' && *str + 1)
+		if (*((char *)str) == '%' && *((char *)str + 1))
 		{
-			tmp += ft_call(str + 1, ptr);
-			if (tmp = -1)
+			tmp = ft_call(*((char *)str + 1), ptr);
+			if (tmp < 0)
 				return (-1);
 			size += tmp;
-			*str++;
+			(char *)str++;
 		}
 		else
-		{
-			ft_putchar(str[i], 1);
-			size++;
-		}
+			size += write(1, &(*((char *)str)), 1);
 		str++;
 	}
 	va_end(ptr);
