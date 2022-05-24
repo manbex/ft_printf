@@ -1,6 +1,7 @@
 NAME = libftprintf.a
 
-SRC = ft_printf.c srcs/print_p.c srcs/print_id.c srcs/print_s.c srcs/print_c.c srcs/print_x.c srcs/print_u.c
+SRC = ft_printf.c srcs/print_p.c srcs/print_id.c srcs/print_s.c \
+	srcs/print_c.c srcs/print_x.c srcs/print_u.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -10,6 +11,7 @@ RM = rm -f
 
 $(NAME): $(OBJ)
 	$(MAKE) -C ./libft
+	mv  ./libft/libft.a ./libftprintf.a
 	ar rcs $@ ${OBJ}
 
 all: $(NAME)

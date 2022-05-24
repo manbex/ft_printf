@@ -17,11 +17,11 @@ OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -c -Wall -Wextra -Werror
 RM = rm -f
 
 $(NAME): $(OBJ)
-	ar rcs $@ ${OBJ}
+	ar rcs $@ $(OBJ)
 
 all: $(NAME)
 
