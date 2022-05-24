@@ -50,5 +50,5 @@ int	print_p(va_list ptr)
 		ft_putnbr_hex(addr);
 		return (ft_count_base(addr) + 2);
 	}
-	return (write(1, "(nil)", 5));
+	return (write(1, PTR_NULL, 5));
 }

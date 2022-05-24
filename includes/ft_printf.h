@@ -13,6 +13,12 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# if defined (__APPLE__)
+#  define PTR_NULL "0x0"
+# elif __linux__
+#  define PTR_NULL "(nil)"
+# endif
+
 # include <stdarg.h>
 # include <unistd.h>
 
