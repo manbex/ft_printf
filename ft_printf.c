@@ -55,6 +55,8 @@ int	ft_printf(const char *str, ...)
 	va_start(ptr, str);
 	size = 0;
 	tmp = 0;
+	if (!str)
+		return (-1);
 	while (*((char *)str))
 	{
 		if (*((char *)str) == '%' && *((char *)str + 1))
