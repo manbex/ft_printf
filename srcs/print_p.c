@@ -46,7 +46,7 @@ int	print_p(va_list ptr)
 	addr = (unsigned long long int)va_arg(ptr, void *);
 	if (addr)
 	{
-		ft_putstr_fd("0x", 1);
+		write(1, "0x", 2);
 		ft_putnbr_hex(addr);
 		return (ft_count_base(addr) + 2);
 	}
